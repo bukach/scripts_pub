@@ -1,8 +1,14 @@
 #!/bin/bash
 
+# usual ddos country
+BADCONTRYLIST="cn China ch1 in India in1 th Thailand th1 vn Vietnam vn1 hk HonkKong hk1 ro Romania ro1"
+# type 
+# blackhole need #sysctl rp_filter=1
+TYPE="blk blackholeRoute list LISTips iptab iptables "
+
 ####
 
-if [ ! -a ./jq ] ;then 
+if [ ! -f ./jq ] ;then 
 URL_JQ32="https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux32"
 URL_JQ64="https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64"
 
@@ -24,15 +30,6 @@ echo not ELF / some is wrong on "./jq" parser ;
 exit 1
 fi
 ####
-
-
-
-
-# usual ddos country
-BADCONTRYLIST="cn China ch1 in India in1 th Thailand th1 vn Vietnam vn1 hk HonkKong hk1"
-# type 
-# blackhole need #sysctl rp_filter=1
-TYPE="blk blackholeRoute list LISTips iptab iptables "
 
 
 SCOUNTRY=$(dialog --stdout --title "list" --cancel-label "new" --checklist "select list:" 15 55 5 ${BADCONTRYLIST} )
