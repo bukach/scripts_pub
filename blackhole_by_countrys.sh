@@ -1,5 +1,33 @@
 #!/bin/bash
 
+####
+
+if [ ! -a ./jq ] ;then 
+URL_JQ32="https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux32"
+URL_JQ64="https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64"
+
+MACHINE_TYPE=`uname -m`
+#1
+if [ ${MACHINE_TYPE} == 'x86_64' ]; then
+  wget -O ./jq "${URL_JQ64}" 
+else
+  wget -O ./jq "${URL_JQ32}" 
+fi
+#-1
+chmod a+x ./jq
+
+
+fi 
+
+if [ "ELF" != `file ./jq |grep -o "ELF"` ] ;then
+echo not ELF / some is wrong on "./jq" parser ;
+exit 1
+fi
+####
+
+
+
+
 # usual ddos country
 BADCONTRYLIST="cn China ch1 in India in1 th Thailand th1 vn Vietnam vn1 hk HonkKong hk1"
 # type 
