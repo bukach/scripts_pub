@@ -41,7 +41,7 @@ exit 2
 fi
 
 
-for icountry in ${SCOUNTRY//"/} ; do 
+for icountry in ${SCOUNTRY} ; do 
 icountry=${icountry//\"/}
 ## type1 USE blackhole 
 #
