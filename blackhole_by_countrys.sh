@@ -36,11 +36,12 @@ SCOUNTRY=$(dialog --stdout --title "list" --cancel-label "new" --checklist "sele
 STYPE=$(dialog --stdout --title "list" --cancel-label "new" --menu "select type:" 15 55 5 ${TYPE} )
 
 if [ -z ${SCOUNTRY} ] ;then 
-echo kk
+echo emptyset
+exit 2
 fi
 
 
-for icountry in ${SCOUNTRY} ; do 
+for icountry in ${SCOUNTRY//"/} ; do 
 
 ## type1 USE blackhole 
 #
