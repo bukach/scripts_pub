@@ -35,9 +35,10 @@ for icountry in ${SCOUNTRY} ; do
      iptables -N ban_${icountry}
      LIST2=`wget -O -  "https://stat.ripe.net/data/country-resource-list/data.json?resource=${icountry}&v4_format=prefix" | ./jq '."data"."resources"."ipv4"[]' 2>&1 `
      for IPS2 in ${LIST2};do 
-       iptables -I ban_${icountry} -s ${IPS2} -j DROP 
+       iptables -A ban_${icountry} -s ${IPS2} -j DROP 
      done
   
+    iptables -I INPUT -j ban_${icountry}
 
 fi 
 
