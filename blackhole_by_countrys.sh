@@ -1,7 +1,9 @@
 #!/bin/bash
 
-
+# usual ddos country
 BADCONTRYLIST="cn China ch1 in India in1 th Thailand th1 vn Vietnam vn1 hk HonkKong hk1"
+# type 
+# blackhole need #sysctl rp_filter=1
 TYPE="blk blackholeRoute list LISTips iptab iptables "
 
 
