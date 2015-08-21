@@ -42,7 +42,7 @@ fi
 
 
 for icountry in ${SCOUNTRY//"/} ; do 
-
+icountry=${icountry//\"/}
 ## type1 USE blackhole 
 #
 if [ "blk" == ${STYPE} ];then 
