@@ -39,7 +39,7 @@ fi
 SCOUNTRY=$(dialog --stdout --title "list" --cancel-label "new" --checklist "select list:" 15 55 5 ${BADCONTRYLIST} )
 STYPE=$(dialog --stdout --title "list" --cancel-label "new" --menu "select type:" 15 55 5 ${TYPE} )
 
-if [ -z ${SCOUNTRY} ] ;then 
+if [ -z ${SCOUNTRY// /} ] ;then 
 echo emptyset
 exit 2
 fi
